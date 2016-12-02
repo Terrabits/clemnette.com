@@ -1,0 +1,9 @@
+
+body {
+  background: url("/images/bk-background.jpg") no-repeat center fixed;
+  background-size: cover;
+}
+body.transition {
+  transition-property: background-position-x;
+  transition-duration: 1s;
+}
