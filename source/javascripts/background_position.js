@@ -10,7 +10,7 @@ function repositionBg() {
   else {
     pos = 0;
   }
-  body.style.backgroundPositionX = (-1 * pos/body.numBgPos * extra) + "px";
+  body.style.backgroundPositionX = (-1 * pos/(body.numBgPos-1) * extra) + "px";
 }
 function setBgPos(x) {
   function anonymousSetBgPos() {
@@ -30,7 +30,7 @@ function repositionBgNoTransition() {
 $('body').ready(function() {
   body = $('body')[0];
   body.bgAspectRatio = 1500.0/400.0;
-  body.numBgPos      = 3;
+  body.numBgPos      = $('nav a').length - 1;
   $('a.navbar-brand').on('click', setBgPos(0));
   $('a#home').on('click', setBgPos(0));
 	$('a#theme').on('click', setBgPos(1));
