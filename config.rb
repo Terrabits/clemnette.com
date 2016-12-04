@@ -33,6 +33,7 @@ activate :pry
 
 # Build-specific configuration
 configure :build do
+  set :build_dir, 'docs'
   activate :minify_html
   activate :minify_css
   activate :minify_javascript
