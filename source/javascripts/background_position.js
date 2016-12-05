@@ -10,7 +10,7 @@ function repositionBg() {
   else {
     pos = 0;
   }
-  body.style.backgroundPositionX = (-1 * pos/(body.numBgPos-1) * extra) + "px";
+  body.style.backgroundPositionX = (-1 * pos/(body.numBgPos) * extra) + "px";
 }
 function setBgPos(x) {
   function anonymousSetBgPos() {
@@ -36,5 +36,27 @@ $('body').ready(function() {
 	$('a#theme').on('click', setBgPos(1));
 	$('a#type').on('click', setBgPos(2));
 	$('a#background-pos-4').on('click', setBgPos(3));
+
+  if (window.location.hash) {
+    var hash = window.location.hash;
+    if (hash == "#Home") {
+      repositionBgNoTransition(0);
+    }
+    else if (hash == "#theme") {
+      repositionBgNoTransition(1);
+    }
+    else if (hash == "#type") {
+      repositionBgNoTransition(2);
+    }
+    else if (hash == "#") {
+      repositionBgNoTransition(3);
+    }
+    else {
+      repositionBgNoTransition(0);
+    }
+  }
+  else {
+    repositionBgNoTransition(0);
+  }
 });
 $(window).on('resize', repositionBgNoTransition);
