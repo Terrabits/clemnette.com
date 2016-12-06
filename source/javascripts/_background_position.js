@@ -33,22 +33,22 @@ $('body').ready(function() {
   body.numBgPos      = $('nav a').length - 1;
   $('a.navbar-brand').on('click', setBgPos(0));
   $('a#home').on('click', setBgPos(0));
-	$('a#theme').on('click', setBgPos(1));
-	$('a#type').on('click', setBgPos(2));
-	$('a#background-pos-4').on('click', setBgPos(3));
+	$('a#link1').on('click', setBgPos(1));
+	$('a#link2').on('click', setBgPos(2));
+	$('a#link3').on('click', setBgPos(3));
 
   if (window.location.hash) {
     var hash = window.location.hash;
     if (hash == "#Home") {
       repositionBgNoTransition(0);
     }
-    else if (hash == "#theme") {
+    else if (hash == "#link1") {
       repositionBgNoTransition(1);
     }
-    else if (hash == "#type") {
+    else if (hash == "#link2") {
       repositionBgNoTransition(2);
     }
-    else if (hash == "#") {
+    else if (hash == "#link3") {
       repositionBgNoTransition(3);
     }
     else {
