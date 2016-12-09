@@ -20,9 +20,10 @@ function setBgPos(x) {
   return anonymousSetBgPos;
 }
 function repositionBgNoTransition(x) {
-  console.log("repositioning without transition...");
   var $body = $('body');
-  $body[0].bgPos = x;
+  if (typeof(x) == "number") {
+    $body[0].bgPos = x;
+  }
   $body.removeClass();
   repositionBg();
 }
