@@ -1,0 +1,40 @@
+@mixin show-page($name) {
+  div##{$name} {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+}
+@mixin hide-page($name) {
+  div##{$name} {
+    display: none;
+  }
+}
+
+div#yield {
+  overflow: hidden;
+  &.home {
+    @include show-page(home);
+    @include hide-page(page1);
+    @include hide-page(page2);
+    @include hide-page(page3);
+  }
+  &.page1 {
+    @include hide-page(home);
+    @include show-page(page1);
+    @include hide-page(page2);
+    @include hide-page(page3);
+  }
+  &.page2 {
+    @include hide-page(home);
+    @include hide-page(page1);
+    @include show-page(page2);
+    @include hide-page(page3);
+  }
+  &.page3 {
+    @include hide-page(home);
+    @include hide-page(page1);
+    @include hide-page(page2);
+    @include show-page(page3);
+  }
+}
