@@ -1,34 +1,34 @@
 
 function repositionBg() {
-  body = $('body')[0];
-  bgHeight = $(window).height();
-  bgWidth = bgHeight * body.bgAspectRatio;
-  extra   = bgWidth - $(window).width();
-  if (body.bgPos) {
+  var body = $('body')[0];
+  var bgHeight = $(window).height();
+  var bgWidth = bgHeight * body.bgAspectRatio;
+  var extra   = bgWidth - $(window).width();
+  var pos = 0;
+  if (extra > 0 && body.bgPos) {
     pos = body.bgPos;
-  }
-  else {
-    pos = 0;
   }
   body.style.backgroundPositionX = (-1 * pos/(body.numBgPos) * extra) + "px";
 }
 function setBgPos(x) {
   function anonymousSetBgPos() {
-    $('body')[0].bgPos = x;
+    var $body = $('body')
+    $body[0].bgPos = x;
+    $body.addClass('transition');
     repositionBg();
-    // $('body')[0].className = "background-pos-" + x;
   }
   return anonymousSetBgPos;
 }
-function repositionBgNoTransition() {
-  body = $('body')[0];
-  body.className = "";
+function repositionBgNoTransition(x) {
+  console.log("repositioning without transition...");
+  var $body = $('body');
+  $body[0].bgPos = x;
+  $body.removeClass();
   repositionBg();
-  body.className = "transition";
 }
 
 $('body').ready(function() {
-  body = $('body')[0];
+  var body = $('body')[0];
   body.bgAspectRatio = 1500.0/400.0;
   body.numBgPos      = $('nav a').length - 1;
   $('a.navbar-brand').on('click', setBgPos(0));
@@ -40,22 +40,28 @@ $('body').ready(function() {
   if (window.location.hash) {
     var hash = window.location.hash;
     if (hash == "#Home") {
+      console.log("Home");
       repositionBgNoTransition(0);
     }
     else if (hash == "#link1") {
+      console.log("Link1");
       repositionBgNoTransition(1);
     }
     else if (hash == "#link2") {
+      console.log("Link2");
       repositionBgNoTransition(2);
     }
     else if (hash == "#link3") {
+      console.log("Link3");
       repositionBgNoTransition(3);
     }
     else {
+      console.log("default position");
       repositionBgNoTransition(0);
     }
   }
   else {
+    console.log('No hash?');
     repositionBgNoTransition(0);
   }
 });
