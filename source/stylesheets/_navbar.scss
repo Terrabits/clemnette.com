@@ -13,6 +13,9 @@ nav div.container
 div.navbar-header a {
   color: black;
 }
-div#navbar ul li a {
-  color: black;
+div#navbar ul.nav li {
+  a {
+    color: black;
+    outline: none;
+  }
 }
