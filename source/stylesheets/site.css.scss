@@ -13,3 +13,9 @@
 body {
     padding-bottom: 30px;
 }
+
+div.main.container {
+  border-radius: 4px;
+  color: darken(white, 20%);
+  background-color: transparentize(black, 0.15);
+}

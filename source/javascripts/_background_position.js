@@ -8,7 +8,7 @@ function repositionBg() {
   if (extra > 0 && body.bgPos) {
     pos = body.bgPos;
   }
-  body.style.backgroundPositionX = (-1 * pos/(body.numBgPos) * extra) + "px";
+  body.style.backgroundPositionX = (-1 * pos/(body.numBgPos-1) * extra) + "px";
 }
 function setBgPos(x) {
   function anonymousSetBgPos() {
