@@ -31,6 +31,8 @@ activate :pry
 #   end
 # end
 
+set :fonts_dir, 'assets/fonts'
+
 # Build-specific configuration
 configure :build do
   set :build_dir, 'docs'
