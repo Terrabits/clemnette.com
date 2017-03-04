@@ -2,20 +2,54 @@
 @import "bootstrap-sprockets";
 @import "bootstrap-variables";
 @import "bootstrap";
-@import "navbar";
 @import "unordered-list";
 @import "ordered-list";
-@import "theme";
-@import "background-position";
-@import "pages";
 
 
 body {
-    padding-bottom: 30px;
+  margin-top: -20px;
+  padding-bottom: 30px;
+  background: url("../images/wes-anderson-background-blur.jpg") no-repeat center fixed;
+  background-size: cover;
 }
 
 div.main.container {
-  border-radius: 4px;
-  color: darken(white, 20%);
-  background-color: transparentize(black, 0.15);
+  text-align: center;
+  font-family: "Tilda Petite";
+  font-style: italic;
+  font-weight: Normal;
+  @media (max-width: $screen-xs-max) {
+    $scale-font-size: 0.5;
+    h1 {
+      font-size: $font-size-h1 * $scale-font-size;
+    }
+    h2 {
+      font-size: $font-size-h2 * $scale-font-size;
+    }
+    h3 {
+      font-size: $font-size-h3 * $scale-font-size;
+    }
+  }
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    $scale-font-size: 0.8;
+    h1 {
+      font-size: $font-size-h1 * $scale-font-size;
+    }
+    h2 {
+      font-size: $font-size-h2 * $scale-font-size;
+    }
+    h3 {
+      font-size: $font-size-h3 * $scale-font-size;
+    }
+  }
+  .bride-and-groom {
+    color: yellow;
+  }
+  .save-the-date-info {
+    color: #12ffff;;
+    a {
+      color: #12ffff;;
+      text-decoration: underline;
+    }
+  }
 }
